@@ -1,13 +1,9 @@
 package br.com.alura.loja.testes;
 
-import br.com.alura.loja.dao.CategoriaDao;
-import br.com.alura.loja.dao.ProdutoDao;
 import br.com.alura.loja.modelo.Categoria;
-import br.com.alura.loja.modelo.Produto;
 import br.com.alura.loja.util.JPAUtil;
 
 import javax.persistence.EntityManager;
-import java.math.BigDecimal;
 
 public class CadastroDeProduto {
 
@@ -25,6 +21,9 @@ public class CadastroDeProduto {
 
         celulares = em.merge(celulares);
         celulares.setNome("1234");
+        em.flush();
+//        em.clear();
+        em.remove(celulares);
         em.flush();
     }
 
